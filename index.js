@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return color;
   }
   
+  
   function changeBackgroundColor() {
     const color = getRandomColor();
     document.body.style.backgroundColor = color;
@@ -36,4 +37,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const button = document.querySelector('.check-btn');
   button.addEventListener('click', changeBackgroundColor);
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("myForm");
+    const agreeCheckbox = document.getElementById("agreeCheckbox");
   
+    form.addEventListener("submit", function (event) {
+      if (!agreeCheckbox.checked) {
+        alert("Please agree to the terms.");
+        event.preventDefault();
+      } else {
+                form.reset();
+             }
+    });
+  });
