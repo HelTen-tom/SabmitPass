@@ -48,13 +48,35 @@
 //              }
 //     });
 //   });
-
+import { generateRandomColor } from "./generateRandomColor.js";
 import { refs } from "./refs.js";
 
 refs.addBtn.addEventListener("click", handleAddCubes);
-refs.resetBtn.addEventListener("click", handleResetCubes);
+// refs.resetBtn.addEventListener("click", handleResetCubes);
 
 function handleAddCubes() {
   const count = refs.countCubes.value;
-  console.log(count);
+  const cubes=createCubes(count)
+  console.log(refs.container);
+  refs.container.append(...cubes);
+  console.log(cubes);
+}
+
+function createCub(size) {
+  const cube = document.createElement("div");
+  cube.style.background = generateRandomColor();
+  cube.style.width = `${size}px`;
+  cube.style.height = `${size}px`;
+  return cube;
+}
+
+function createCubes(count) {
+  let size = 50;
+  const cubes = [];
+
+  for (let i = 0; i < count; i++) {
+    const elem = createCub(size);
+    cubes.push(elem);
+  }
+  return cubes;
 }
