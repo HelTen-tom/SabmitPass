@@ -56,7 +56,7 @@ refs.addBtn.addEventListener("click", handleAddCubes);
 
 function handleAddCubes() {
   const count = refs.countCubes.value;
-  const cubes=createCubes(count)
+  const cubes = createCubes(count);
   console.log(refs.container);
   refs.container.append(...cubes);
   console.log(cubes);
