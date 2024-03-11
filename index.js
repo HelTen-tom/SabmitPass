@@ -1,3 +1,6 @@
+import { createCubes } from "./helpers/createCubes.js";
+import { refs } from "./refs.js";
+
 // document.addEventListener("DOMContentLoaded", function () {
 //     const form = document.querySelector("form");
 //     const passwordInput = document.querySelector(".text-parol-input");
@@ -48,8 +51,6 @@
 //              }
 //     });
 //   });
-import { createCubes } from "./helpers/createCubes.js";
-import { refs } from "./refs.js";
 
 refs.addBtn.addEventListener("click", handleAddCubes);
 refs.resetBtn.addEventListener("click", handleResetCubes);
@@ -61,6 +62,10 @@ function handleAddCubes() {
   console.log(refs.container);
   refs.container.append(...cubes);
   console.log(cubes);
+}
+function handleResetCubes() {
+  console.log(refs.container.innerHTML);
+  refs.container.innerHTML = "";
 }
 
 // function createCub(size) {
