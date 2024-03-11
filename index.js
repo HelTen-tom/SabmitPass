@@ -48,35 +48,38 @@
 //              }
 //     });
 //   });
-import { generateRandomColor } from "./generateRandomColor.js";
+import { createCubes } from "./helpers/createCubes.js";
 import { refs } from "./refs.js";
 
 refs.addBtn.addEventListener("click", handleAddCubes);
-// refs.resetBtn.addEventListener("click", handleResetCubes);
+refs.resetBtn.addEventListener("click", handleResetCubes);
 
 function handleAddCubes() {
+  const countCubes = refs.container.childElementCount;
   const count = refs.countCubes.value;
-  const cubes = createCubes(count);
+  const cubes = createCubes(count, countCubes);
   console.log(refs.container);
   refs.container.append(...cubes);
   console.log(cubes);
 }
 
-function createCub(size) {
-  const cube = document.createElement("div");
-  cube.style.background = generateRandomColor();
-  cube.style.width = `${size}px`;
-  cube.style.height = `${size}px`;
-  return cube;
-}
+// function createCub(size) {
+//   const cube = document.createElement("div");
+//   cube.style.background = generateRandomColor();
+//   cube.style.width = `${size}px`;
+//   cube.style.height = `${size}px`;
+//   return cube;
+// }
 
-function createCubes(count) {
-  let size = 50;
-  const cubes = [];
+// function createCubes(count, countCubes) {
+//   let size = countCubes === 0 ? 50 : 50 + countCubes * 10;
+//   console.log(size);
+//   const cubes = [];
 
-  for (let i = 0; i < count; i++) {
-    const elem = createCub(size);
-    cubes.push(elem);
-  }
-  return cubes;
-}
+//   for (let i = 0; i < count; i++) {
+//     const elem = createCub(size);
+//     cubes.push(elem);
+//     size += 10;
+//   }
+//   return cubes;
+// }
